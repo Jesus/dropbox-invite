@@ -11,5 +11,11 @@ To achieve this functionality, the library relies on
 [nokogiri](http://www.nokogiri.org), which are be used in combination
 to reproduce what a human would do through the public web interface.
 
+## Urgent TODO
+[ ] Write documentation for the gem's API.
+[ ] Add integration with [dropbox-api](https://github.com/futuresimple/dropbox-api)
+[ ] Improve class interfaces.
+[ ] Complete README file.
+
 ## How to use
 Coming soon...
