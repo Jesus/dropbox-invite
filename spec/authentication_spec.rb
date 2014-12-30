@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Dropbox::WebClient do
   describe "authentication" do
     

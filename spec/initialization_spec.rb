@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Dropbox::WebClient do
   describe "initialization" do
     it "isn't authenticated at start" do

@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe Dropbox::WebClient::Actions do
   describe "invite" do    
     let(:session) do
