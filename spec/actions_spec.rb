@@ -8,6 +8,7 @@ describe Dropbox::WebClient::Actions do
   end
 
   describe "invite" do
+
     it "fails if no folder found", :cassette => "invite_unexisting_folder" do
       r = session.invite("/peanuts", ["test1@somewhere.com"])
       
@@ -16,18 +17,20 @@ describe Dropbox::WebClient::Actions do
     
     it "works on already shared folders", :cassette => "invite_shared_folder" do
       r = session.invite("/shared folder", ["test1@somewhere.com"])
-      
       expect(r.error?).to be_falsey
-      # TODO:
-      # Should check folder members to check if the given email is included
+
+      r = session.share_options("/shared folder")
+      expect(r.response_data[:members].map{|m|m[:email]}).
+        to include("test1@somewhere.com")
     end
  
     it "works on normal folders", :cassette => "invite_existing_folder" do
       r = session.invite("/new folder", ["test1@somewhere.com"])
-      
       expect(r.error?).to be_falsey
-      # TODO:
-      # Should check folder members to check if the given email is included
+      
+      r = session.share_options("/new folder")
+      expect(r.response_data[:members].map{|m|m[:email]}).
+        to include("test1@somewhere.com")
     end
  
   end
@@ -40,10 +43,10 @@ describe Dropbox::WebClient::Actions do
       expect(r.error?).to be_truthy
     end
     
-    it "works on already shared folders", :cassette => "share_opts_shared" do
+    it "works on shared folders", :cassette => "share_opts_shared" do
       r = session.share_options("/shared folder")
 
-      expect(r.response_data[:members].map{|m|m[:email]})
+      expect(r.response_data[:members].map{|m|m[:email]}).
         to match_array(["c2553105@trbvm.com", "test1@somewhere.com"])
     end
 
