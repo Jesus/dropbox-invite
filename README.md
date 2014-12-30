@@ -1,5 +1,6 @@
 # dropbox-invite
 
+[![Gem Version](https://badge.fury.io/rb/dropbox-invite.svg)](http://badge.fury.io/rb/dropbox-invite)
 [![Code Climate](https://codeclimate.com/github/Jesus/dropbox-invite/badges/gpa.svg)](https://codeclimate.com/github/Jesus/dropbox-invite)
 
 ## Introduction
