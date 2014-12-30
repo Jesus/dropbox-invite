@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# coding: utf-8
 $:.push File.expand_path("../lib", __FILE__)
 require "dropbox/web_client/version"
 
@@ -19,12 +19,16 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'dropbox-api', "~> 0.4"
 
+  s.add_development_dependency "bundler", "~> 1.6"
+  s.add_development_dependency "rake"
+
   s.add_development_dependency 'rspec', "~> 3.1"
   s.add_development_dependency 'vcr', "~> 2.9"
   s.add_development_dependency 'webmock', "~> 1.17"
   s.add_development_dependency 'debugger', "~> 1.6"
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.files         = `git ls-files -z`.split("\x0")
+  s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.require_paths = ["lib"]
 end
