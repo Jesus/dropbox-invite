@@ -1,5 +1,7 @@
 # dropbox-invite
 
+[![Code Climate](https://codeclimate.com/github/Jesus/dropbox-invite/badges/gpa.svg)](https://codeclimate.com/github/Jesus/dropbox-invite)
+
 ## Introduction
 
 This gem allows you to invite other users to a shared folder in Dropbox. It's
