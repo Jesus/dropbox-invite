@@ -46,8 +46,11 @@ Dropbox::API::Config.app_secret = YOUR_APP_SECRET
 Dropbox::API::Config.mode       = "dropbox" # This is a requirement
 ```
 
+At this point you're able to instantiate a `Dropbox::API::Client` object either
+through web-based authorization or rake-based. So far, nothing new.
+
 Additionally you'll need to set up the web login credentials as part of the
-API settings.
+API settings to enable the initialization of a web client when it's required.
 
 ```ruby
 Dropbox::API::Config.web_session = Dropbox::WebClient::Session.new(
@@ -56,8 +59,8 @@ Dropbox::API::Config.web_session = Dropbox::WebClient::Session.new(
 )
 ```
 
-Note that the web authentication won't happen until you actually need it, for
-example when the `invite` method is invoked.
+Note that the web authentication won't happen until you actually need it, i.e.
+when the `invite` method is invoked.
 
 Now, assuming that you've got a `Dropbox::API::Dir` object called `some_dir`,
 you'd be able to perform this:
