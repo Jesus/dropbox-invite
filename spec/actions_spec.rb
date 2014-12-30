@@ -43,6 +43,13 @@ describe Dropbox::WebClient::Actions do
       expect(r.error?).to be_truthy
     end
     
+    it "fails if the given folder isn't shared",
+      :cassette => "share_opts_existing" do
+      r = session.share_options("/unshared folder")
+      
+      expect(r.error?).to be_truthy
+    end
+    
     it "works on shared folders", :cassette => "share_opts_shared" do
       r = session.share_options("/shared folder")
 

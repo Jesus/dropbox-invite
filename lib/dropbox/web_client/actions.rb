@@ -43,13 +43,6 @@ module Dropbox
 
         return ResponseParser.new(response.body, :share_options)
       end
-      
-      def is_shared_folder?(path)
-        r=share_options(path)
-        debugger
-        puts r
-        false
-      end
     end
 
   end

@@ -1,6 +1,7 @@
 require 'bundler/setup'
 Bundler.setup
 
+require 'dropbox-api'
 require 'rest-client'
 require 'nokogiri'
 
