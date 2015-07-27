@@ -1,8 +1,8 @@
 module Dropbox
   module WebClient
-    
+
     module Paths
-      @@endpoint = "https://www.dropbox.com"      
+      @@endpoint = "https://www.dropbox.com"
       @@paths = {
         :login          => "/login",
         :post_login     => "/ajax_login",
@@ -30,6 +30,6 @@ module Dropbox
         end
       end
     end
-    
+
   end
 end

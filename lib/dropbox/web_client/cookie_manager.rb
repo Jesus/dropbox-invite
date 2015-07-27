@@ -1,12 +1,12 @@
 module Dropbox
   module WebClient
-    
+
     # Cookie management, this is what will preserve our session
     class CookieManager
       def initialize
         clear_cookies
       end
-      
+
       def take(cookies)
         @cookies ||= {}
         @cookies.merge! cookies
@@ -35,6 +35,6 @@ module Dropbox
       end
 
     end
- 
+
   end
 end

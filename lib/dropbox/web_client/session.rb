@@ -5,7 +5,7 @@ module Dropbox
       include Paths
       include Authentication
       include Actions
-      
+
       attr_accessor :email, :password
       attr_reader :cookies
 
@@ -16,11 +16,11 @@ module Dropbox
 
         # Initialize cookie manager
         @cookies = CookieManager.new
-        
+
         # Start unauthenticated
         @authenticated = false
       end
-  
+
     end
 
   end

@@ -1,14 +1,14 @@
 module Dropbox
   module WebClient
-    
+
     module Actions
       def invite(path, emails, message = "", is_shared_folder = nil)
         ensure_authenticated
-        
+
         if is_shared_folder.nil?
           # Determine if the folder exists
           share_options_response = share_options(path)
-          
+
           is_shared_folder = !share_options_response.error?
         end
 

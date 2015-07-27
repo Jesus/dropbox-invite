@@ -6,7 +6,7 @@ module Dropbox
         def web_session=(session)
           @web_session = session
         end
-        
+
         def web_session
           if @web_session.nil?
             raise Dropbox::API::Error::Config.new("Web session hasn't been configured")
