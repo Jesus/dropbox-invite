@@ -34,9 +34,13 @@ module Dropbox
       private
 
       def parse_response
-        self.class.send("parse_#{@response_type.to_s}", @response_text)
-      rescue NoMethodError
-        raise "Unsupported response format"
+        parse_method_name = "parse_#{@response_type.to_s}"
+
+        if self.class.respond_to? parse_method_name
+          self.class.send(parse_method_name, @response_text)
+        else
+          raise ResponseError, "Unsupported response format"
+        end
       end
 
       def self.parse_json(text)
