@@ -1,6 +1,6 @@
 module Dropbox
   module WebClient
-  
+
     module Authentication
 
       def authenticated?
@@ -12,15 +12,17 @@ module Dropbox
         post_login
 
         @authenticated = true
+      rescue ResponseError => e
+        raise AuthenticationError, e
       end
-      
+
       # TODO: Should keep in consideration the session expiration...
       def ensure_authenticated
         authenticate unless authenticated?
         true
       end
 
-    private
+      private
 
       # Gets the login URL and keeps the cookies, required to continue the
       # authentication process
@@ -30,7 +32,7 @@ module Dropbox
         response
       end
 
-      # Posts user credentials and keeps the returned cookies, this'll start a 
+      # Posts user credentials and keeps the returned cookies, this'll start a
       # user session.
       def post_login
         response = RestClient.post(post_login_url, {
@@ -53,11 +55,11 @@ module Dropbox
       # we got in the previous authentication step.
       def get_after_login_url
         response = RestClient.get(after_login_url, :cookies => current_cookies)
-  
+
         # Get _subject_uid (hidden field in response HTML)
         parsed_response = ResponseParser.new(response.body, :html, :html)
         @subject_uid = parsed_response.response_data[:subject_uid]
-  
+
         return response
       end
 
@@ -66,6 +68,6 @@ module Dropbox
       end
 
     end
-    
+
   end
 end
