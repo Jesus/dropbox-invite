@@ -2,6 +2,13 @@
 
 [![Gem Version](https://badge.fury.io/rb/dropbox-invite.svg)](http://badge.fury.io/rb/dropbox-invite)
 [![Code Climate](https://codeclimate.com/github/Jesus/dropbox-invite/badges/gpa.svg)](https://codeclimate.com/github/Jesus/dropbox-invite)
+## UPDATE
+
+Dropbox has recently changed their authentication process to prevent non-humans
+from logging in. Unfortunately for this library we haven't been able to break
+this restriction just yet.
+
+Therefore, **this library is useless at the moment**.
 
 ## Introduction
 
